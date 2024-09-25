@@ -1,0 +1,76 @@
+
+
+	TEORIA CURSO SPRING BOOT
+
+	Una vez creado el proyecto en este caso un proyecto simple de Spring Web
+	y asignado un puerto funcional necesitamos un URL, controller o rest controller
+	para poder ejecutar y ver la aplicacion en nuestro navegador.
+	
+	-REST Controller: Una clase java que sera un controlador que manejara solicitudes web, algunas
+	de sus utilidades son proporcionar datos a aplicaciones cliente, procesar datos y manejar la
+	logica de la aplicacion. Es decir puede realizar operaciones de tipo CRUD este controller
+	es un intermediario entre la vista y el servicio (la logica de negocio), tambien podemos 
+	mostrar la pagina de inicio. Aunque es mas recomendable utilizar un Controller las diferencias 
+	entre ambos son:
+	
+	-@RestController: utilizado para crear APIs RESTful, devuelve los datos en formato JSON o XML
+	-@Controller: se utiliza para solicitudes web tradicionales como devolver vistas HTML. Se suele 
+	utilizar JSP(obsoleto) y motores de plantilla como Thymeleaf, freemarker, mustache...
+	
+	-Motor de plantillas: software que procesa HTMLs con marcadores de posicion y los remplaza con 
+	datos dinamicos para generar documentos de salida para agregar esto se necesita añadir una dependencia
+	adicional
+	
+	Cuando hagamos una aplicacion Spring web las plantillas HTML iran dentro de src/main/resource/templates
+	dentro del proyecto.
+	
+	-¿Que es Maven?: Es una herramienta para la gestion de proyectos y gestion de dependencias con ello nos 
+	referimos a los archivos JAR necesarios como: Core Spring, Hibernate, JSON etc... Es como una tienda 
+	donde tu compras cosas y el repositorio de maven las descarga y las agrega a tu proyecto para que las 
+	puedas utilizar dicha 'Tienda' se llama Maven Central Repository. Para saber que necesita tu prroyecto
+	maven se dirigen a tu archivo pom.xml seria como la lista de la compra en este contexto de ejemplo el 
+	proceso es el siguiente: 
+	
+	1º: Se dirige al pom.xml y ve lo que necesita este proyecto
+	2º: Se dirige a nuestro repositorio local dentro del proyecto que es donde se almacenan estas librerias 
+		especificas si no estan descargadas
+	3º: Se dirige a Maven Central Repository y las descarga de alli y las agrega a nuestro repositorio local
+	
+	-pom.xml: Esta formado por tres rgandes partes:
+	
+	1º: Proyect metadata: Nombre del proyecto, version, archivo generado WAR, JAR etc
+	2º: Dependencias: Spring, Hiberante etc
+	3º: Plugins: Tareas adicionales, informes, test, junit etc.
+	
+	-¿Que es Actuactor?: modulo que proporciona herramientas utiles para monitorear  gestionar aplicaciones 
+	spring boot en produccion, tambien proporciona herramientas utiles para desarrollo. Actua dando visibilidad 
+	sobre el estado interno de la aplicacion proporcionando:
+		
+		-Metricas: como logs hechos dentro de la aplicacion, salud de la aplicacion...
+		-Informacion de configuracion
+		-EndPoints expuestos que no es mas que una URL en una aplicacion que permite a los clientes interactuar 
+		con un servicio especifico a traves de la red generalmente utilizando protocolos HTTP. que endpoint podemos
+		tener con Actuator: /actuator/info, /actuator/health, /actuator/metrics, /actuator/env, /actuator/loggers.
+		
+	Para poder lograr usar Actuactor es necesario agreagar la dependencia la cual se refleja en el pom.xml
+	
+	-Para tener mas seguridad en la aplicacion ya que al usar Actuactor esto podria profoprcionar informacion 
+	importante de un proyecto para gente con malas intenciones usamos otra dependencia: spring-boot-starter-security
+	la cual implementa una pantalla de login con un usuario y contraseña para que solo puedan entrar y ver esa informacion 
+	la gente del proyecto. El usuario por defecto es (user) el paswword viene en la consola de la aplicacion al ejecutar la 
+	aplicacion. Tambien se puede asignar un usuario y contraseña especificos en el archivo application.properties asi:
+	
+		spring.security.user.name=Alfonso
+		pring.security.user.password=12345
+		
+	----------------------------------------------------------------------------------------------------------------------
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
